@@ -89,13 +89,14 @@ const Index = () => {
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-xs md:text-sm h-9 md:h-10"
                   />
-                  <p className="text-xs md:text-sm text-gray-500">Или URL:</p>
+                  <p className="text-xs text-gray-500">Или URL:</p>
                   <Input
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
                     placeholder="https://example.com/image.jpg"
+                    className="text-xs md:text-sm h-9 md:h-10"
                   />
                 </div>
               </div>
