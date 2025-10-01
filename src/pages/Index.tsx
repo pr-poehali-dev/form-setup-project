@@ -46,20 +46,20 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 md:p-8">
+      <div className="max-w-7xl mx-auto space-y-4 md:space-y-8">
         <div className="text-center space-y-2 animate-fade-in">
-          <h1 className="text-4xl font-bold text-gray-900">Конструктор баннеров</h1>
-          <p className="text-gray-600">Создайте свой баннер и получите код для вставки</p>
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-900">Конструктор баннеров</h1>
+          <p className="text-sm md:text-base text-gray-600">Создайте свой баннер и получите код для вставки</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          <Card className="p-6 space-y-6 animate-scale-in">
-            <h2 className="text-2xl font-bold text-gray-900">Настройки баннера</h2>
+        <div className="grid lg:grid-cols-2 gap-4 md:gap-8">
+          <Card className="p-4 md:p-6 space-y-4 md:space-y-6 animate-scale-in">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900">Настройки баннера</h2>
             
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <div>
-                <Label htmlFor="title">Заголовок (над основным текстом)</Label>
+                <Label htmlFor="title" className="text-sm">Заголовок</Label>
                 <Input
                   id="title"
                   value={title}
@@ -70,19 +70,19 @@ const Index = () => {
               </div>
 
               <div>
-                <Label htmlFor="subtitle">Основной текст</Label>
+                <Label htmlFor="subtitle" className="text-sm">Основной текст</Label>
                 <Textarea
                   id="subtitle"
                   value={subtitle}
                   onChange={(e) => setSubtitle(e.target.value)}
                   placeholder="Первый заём бесплатно*"
                   className="mt-2"
-                  rows={3}
+                  rows={2}
                 />
               </div>
 
               <div>
-                <Label htmlFor="image">Изображение персонажа</Label>
+                <Label htmlFor="image" className="text-sm">Изображение</Label>
                 <div className="mt-2 space-y-2">
                   <Input
                     id="image"
@@ -91,7 +91,7 @@ const Index = () => {
                     onChange={handleImageUpload}
                     className="cursor-pointer"
                   />
-                  <p className="text-sm text-gray-500">Или вставьте URL изображения:</p>
+                  <p className="text-xs md:text-sm text-gray-500">Или URL:</p>
                   <Input
                     value={imageUrl}
                     onChange={(e) => setImageUrl(e.target.value)}
@@ -101,11 +101,10 @@ const Index = () => {
               </div>
             </div>
 
-            <div className="pt-4 border-t space-y-3">
+            <div className="pt-3 md:pt-4 border-t space-y-2 md:space-y-3">
               <Button 
                 onClick={() => setShowCode(!showCode)} 
-                className="w-full bg-purple-600 hover:bg-purple-700"
-                size="lg"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-sm md:text-base"
               >
                 <Icon name="Code" className="mr-2" size={20} />
                 {showCode ? 'Скрыть код' : 'Получить код для вставки'}
@@ -118,7 +117,7 @@ const Index = () => {
                       value={generateEmbedCode()}
                       readOnly
                       className="font-mono text-xs"
-                      rows={12}
+                      rows={8}
                     />
                     <Button
                       onClick={copyToClipboard}
@@ -138,29 +137,29 @@ const Index = () => {
             </div>
           </Card>
 
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-900">Предпросмотр</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-gray-900">Предпросмотр</h2>
               <Icon name="Eye" size={24} className="text-gray-500" />
             </div>
             
             <div 
-              className="rounded-2xl overflow-hidden shadow-2xl animate-scale-in"
+              className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl animate-scale-in"
               style={{
                 background: 'linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%)',
               }}
             >
-              <div className="flex items-center justify-between p-12">
-                <div className="flex-1 pr-10 text-white">
-                  <div className="text-sm font-medium mb-4 opacity-90">
+              <div className="flex flex-col md:flex-row items-center justify-between p-6 md:p-12 gap-4 md:gap-0">
+                <div className="flex-1 md:pr-10 text-white text-center md:text-left">
+                  <div className="text-xs md:text-sm font-medium mb-2 md:mb-4 opacity-90">
                     {title}
                   </div>
-                  <h1 className="text-5xl font-bold leading-tight">
+                  <h1 className="text-2xl md:text-5xl font-bold leading-tight">
                     {subtitle}
                   </h1>
                 </div>
                 
-                <div className="flex-shrink-0 w-96">
+                <div className="flex-shrink-0 w-48 md:w-96">
                   <img 
                     src={imageUrl} 
                     alt="Character" 
