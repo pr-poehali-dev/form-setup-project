@@ -145,22 +145,22 @@ const Index = () => {
             </div>
             
             <div 
-              className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl animate-scale-in"
+              className="rounded-xl md:rounded-2xl overflow-hidden shadow-2xl animate-scale-in -mx-4 md:mx-0"
               style={{
                 background: 'linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%)',
               }}
             >
-              <div className="flex flex-col md:flex-row items-center justify-between p-6 md:p-12 gap-4 md:gap-0">
-                <div className="flex-1 md:pr-10 text-white text-center md:text-left">
-                  <div className="text-xs md:text-sm font-medium mb-2 md:mb-4 opacity-90">
+              <div className="flex flex-col md:flex-row items-center justify-between p-8 md:p-12 gap-6 md:gap-0 min-h-[400px] md:min-h-0">
+                <div className="flex-1 md:pr-10 text-white text-center md:text-left w-full">
+                  <div className="text-sm md:text-sm font-medium mb-3 md:mb-4 opacity-90">
                     {title}
                   </div>
-                  <h1 className="text-2xl md:text-5xl font-bold leading-tight">
+                  <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                     {subtitle}
                   </h1>
                 </div>
                 
-                <div className="flex-shrink-0 w-48 md:w-96">
+                <div className="flex-shrink-0 w-64 md:w-96">
                   <img 
                     src={imageUrl} 
                     alt="Character" 
@@ -173,7 +173,7 @@ const Index = () => {
               </div>
             </div>
 
-            <Card className="p-4 bg-purple-50 border-purple-200">
+            <Card className="p-4 bg-purple-50 border-purple-200 hidden md:block">
               <div className="flex items-start gap-3">
                 <Icon name="Lightbulb" size={20} className="text-purple-600 mt-0.5" />
                 <div className="text-sm text-purple-900">
